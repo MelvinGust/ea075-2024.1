@@ -47,6 +47,7 @@ O sistema OptiSort oferece diversas configurações para atender às necessidade
 1. Parâmetros de Identificação:
    - Tipos de itens: Defininição de quais tipos de itens o sistema deve identificar e classificar. O usuário precisará capturar imagens de itens de diferentes níveis de qualidade para treinar o classificador com visão computacional. O processo de treinamento deve ser simples e intuitivo e não requerer o uso de programação.
    - Limite de rejeição: A saída do classificador visual é um número correspondente à probabilidade de um item ser da categoria rejeitada. O limite de rejeição é a probabilidade a partir da qual o item deve ser identificado e retirado da linha de separação. Por exemplo, se o limite de rejeição for de 0.7, apenas produtos atribuídos com mais de 70% de probabilidade pelo sistema de visão computacional são removidos da esteira.
+   - Número máximo de itens rejeitados abandonados: No caso de um item rejeitado não ser removido da esteira por fatores externos, o sistema registra esse evento. Se o número de itens rejeitados que passarem pela inspeção passar de uma determinada taxa, a esteira é interrompida
   
 2. Parâmetros de Atuação
    - Velocidade da esteira: Ajuste da velocidade da esteira de acordo com o fluxo de produção.
@@ -142,7 +143,7 @@ Eventos Não Periódicos:
 
 2. Passagem de item defeituoso para a próxima etapa:
 
-    Se um item defeituoso passar para a próxima etapa de produção acidentalmente, o OptiSort interrompe a esteira e solicita avaliação do operador.
+    A passagem acidental de um item defeituoso é registrada na memória do sistema. Se o número de itens defeituosos que passarem para a próxima etapa de produção for maior que o parâmetro especificado, o OptiSort interrompe a esteira e solicita avaliação do operador.
 
 
 ## Descrição Estrutural do Sistema
